@@ -44,6 +44,7 @@ jobs:
         sed -i 's/NKRO_ENABLE = yes/NKRO_ENABLE = no/' keyboards/keychron/k6/rgb/rules.mk
         sed -i 's/WAIT_FOR_USB = yes/WAIT_FOR_USB = no/' keyboards/keychron/k6/rgb/rules.mk
         sed -i 's/KEYBOARD_SHARED_EP = yes/KEYBOARD_SHARED_EP = no/' keyboards/keychron/k6/rgb/rules.mk
+        sed -i 's/RGB_MATRIX_ENABLE = yes/RGB_MATRIX_ENABLE = no/' keyboards/keychron/k6/rgb/rules.mk
         cat keyboards/keychron/k6/rgb/rules.mk
 
     - name: Build firmware
