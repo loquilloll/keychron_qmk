@@ -22,7 +22,6 @@ jobs:
       uses: actions/checkout@v3
       with:
         repository: SonixQMK/qmk_firmware
-        ref: sn32_stable
         submodules: recursive
 
     - name: Checkout userspace
@@ -36,8 +35,9 @@ jobs:
     # - name: Copy ansi.c
     #   run: cp -f users/${{ github.actor }}/ansi.c keyboards/keychron/k6/rgb/ansi/ansi.c
 
-    # - name: Set options
-    #   run: |
+    - name: Set options
+      run: |
+        echo "#define FORCE_NKRO" >> keyboards/keychron/k6/rgb/config.h
     #     echo "#define BOOTMAGIC_LITE_ROW 0" >> keyboards/keychron/k6/rgb/config.h
     #     echo "#define BOOTMAGIC_LITE_COLUMN 0" >> keyboards/keychron/k6/rgb/config.h
     #     sed -i 's/MAGIC_KEYCODE_ENABLE = yes/MAGIC_KEYCODE_ENABLE = no/' keyboards/keychron/k6/rgb/rules.mk
