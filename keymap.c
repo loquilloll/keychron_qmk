@@ -156,19 +156,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 
-bool dip_switch_update_user(uint8_t index, bool active){
-    switch(index){
-        case 0: // macos/windows togggle
-            if(active){ //macos
-                layer_move(MAC_BASE);
-            }
-            else{ //windows
-                layer_move(WIN_BASE);
-            }
-        break;
-    }
-    return true;
-}
+// bool dip_switch_update_user(uint8_t index, bool active){
+//     switch(index){
+//         case 0: // macos/windows togggle
+//             if(active){ //macos
+//                 layer_move(MAC_BASE);
+//             }
+//             else{ //windows
+//                 layer_move(WIN_BASE);
+//             }
+//         break;
+//     }
+//     return true;
+// }
 
 void keyboard_post_init_user(void) {
     // Customise these values to desired behaviour
