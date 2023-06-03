@@ -43,6 +43,7 @@ jobs:
         sed -i 's/MAGIC_ENABLE = yes/MAGIC_ENABLE = no/' keyboards/keychron/k6/rgb/rules.mk
         sed -i 's/NKRO_ENABLE = yes/NKRO_ENABLE = no/' keyboards/keychron/k6/rgb/rules.mk
         sed -i 's/WAIT_FOR_USB = yes/WAIT_FOR_USB = no/' keyboards/keychron/k6/rgb/rules.mk
+        cat rules.mk
 
     - name: Build firmware
       # run: qmk compile "users/${{ github.actor }}/${{ matrix.file }}"
