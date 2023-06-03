@@ -31,7 +31,7 @@ jobs:
         path: users/${{ github.actor }}
 
     - name: Copy Keymap.c
-      run: cp -f users/${{ github.actor }}/keymap.c keyboards/keychron/k6/rgb/keymaps/ansi/
+      run: cp -f users/${{ github.actor }}/keymap.c keyboards/keychron/k6/keymaps/ansi/
 
     # - name: Copy ansi.c
     #   run: cp -f users/${{ github.actor }}/ansi.c keyboards/keychron/k6/rgb/ansi/ansi.c
