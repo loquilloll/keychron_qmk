@@ -29,8 +29,8 @@ jobs:
       with:
         path: users/${{ github.actor }}
 
-    # - name: Copy Keymap.c
-    #   run: cp -f users/${{ github.actor }}/keyboards/keebio/stick/keymaps/default/keymap.c keyboards/keebio/stick/keymaps/default/
+    - name: Copy Keymap.c
+      run: cp -f users/${{ github.actor }}/keymap.c keyboards/keychron/k6/keymaps/ansi/
 
     # - name: Copy Rules.mk
     #   run: cp -f users/${{ github.actor }}/keyboards/keebio/stick/rules.mk keyboards/keebio/stick/
