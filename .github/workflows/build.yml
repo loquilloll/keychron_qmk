@@ -41,7 +41,8 @@ jobs:
         echo "#define BOOTMAGIC_LITE_COLUMN 0" >> keyboards/keychron/k6/rgb/config.h
         sed -i 's/MAGIC_KEYCODE_ENABLE = yes/MAGIC_KEYCODE_ENABLE = no/' keyboards/keychron/k6/rgb/rules.mk
         sed -i 's/MAGIC_ENABLE = yes/MAGIC_ENABLE = no/' keyboards/keychron/k6/rgb/rules.mk
-        sed -i 's/NKRO_ENABLE  = yes/NKRO_ENABLE = no/' keyboards/keychron/k6/rgb/rules.mk
+        sed -i 's/NKRO_ENABLE = yes/NKRO_ENABLE = no/' keyboards/keychron/k6/rgb/rules.mk
+        sed -i 's/WAIT_FOR_USB = yes/WAIT_FOR_USB = no/' keyboards/keychron/k6/rgb/rules.mk
 
     - name: Build firmware
       # run: qmk compile "users/${{ github.actor }}/${{ matrix.file }}"
