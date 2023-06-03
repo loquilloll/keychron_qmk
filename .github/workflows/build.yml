@@ -35,18 +35,10 @@ jobs:
     # - name: Copy Rules.mk
     #   run: cp -f users/${{ github.actor }}/keyboards/keebio/stick/rules.mk keyboards/keebio/stick/
 
-    # - name: Set options
-    #   run: |
-    #     echo "#define CIRQUE_PINNACLE_SPI_CS_PIN B6" >> keyboards/keebio/stick/config.h
-    #     echo "#define CIRQUE_PINNACLE_CURVED_OVERLAY" >> keyboards/keebio/stick/config.h
-    #     echo "#define CIRQUE_PINNACLE_POSITION_MODE CIRQUE_PINNACLE_RELATIVE_MODE" >> keyboards/keebio/stick/config.h
-    #     echo "#define CIRQUE_PINNACLE_TAP_ENABLE" >> keyboards/keebio/stick/config.h
-    #     echo "#define CIRQUE_PINNACLE_SECONDARY_TAP_ENABLE" >> keyboards/keebio/stick/config.h
-    #     echo "#define CIRQUE_PINNACLE_ATTENUATION EXTREG__TRACK_ADCCONFIG__ADC_ATTENUATE_2X" >> keyboards/keebio/stick/config.h
-    #     echo "#define POINTING_DEVICE_GESTURES_SCROLL_ENABLE" >> keyboards/keebio/stick/config.h
-    #     # echo "#define POINTING_DEVICE_ROTATION_90" >> keyboards/keebio/stick/config.h
-    #     # fix for rotation, https://github.com/qmk/qmk_firmware/issues/21010
-    #     # sed -i '101s/.*/        feedconfig1 |= HOSTREG__FEEDCONFIG1__FEED_ENABLE | HOSTREG__FEEDCONFIG1__X_DATA_INVERT | HOSTREG__FEEDCONFIG1__Y_DATA_INVERT;/' drivers/sensors/cirque_pinnacle.c
+    - name: Set options
+      run: |
+        echo "#define BOOTMAGIC_LITE_ROW 0" >> keyboards/keychron/k6/rgb/config.h
+        echo "#define BOOTMAGIC_LITE_COLUMN 0" >> keyboards/keychron/k6/rgb/config.h
 
     - name: Build firmware
       # run: qmk compile "users/${{ github.actor }}/${{ matrix.file }}"
