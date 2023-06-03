@@ -21,7 +21,7 @@ jobs:
     - name: Checkout QMK
       uses: actions/checkout@v3
       with:
-        repository: SonixQMK/qmk_firmware
+        repository: qmk/qmk_firmware
         submodules: recursive
 
     - name: Checkout userspace
@@ -30,27 +30,27 @@ jobs:
         path: users/${{ github.actor }}
 
     - name: Copy Keymap.c
-      run: cp -f users/${{ github.actor }}/keymap.c keyboards/keychron/k6/keymaps/ansi/
+      run: cp -f users/${{ github.actor }}/keymap.c keyboards/keychron/v3/keymaps/default/
 
-    - name: Copy ansi.c
-      run: cp -f users/${{ github.actor }}/ansi.c keyboards/keychron/k6/rgb/ansi/ansi.c
+    # - name: Copy ansi.c
+    #   run: cp -f users/${{ github.actor }}/ansi.c keyboards/keychron/k6/rgb/ansi/ansi.c
 
-    - name: Set options
-      run: |
-        echo "#define BOOTMAGIC_LITE_ROW 0" >> keyboards/keychron/k6/rgb/config.h
-        echo "#define BOOTMAGIC_LITE_COLUMN 0" >> keyboards/keychron/k6/rgb/config.h
-        sed -i 's/MAGIC_KEYCODE_ENABLE = yes/MAGIC_KEYCODE_ENABLE = no/' keyboards/keychron/k6/rgb/rules.mk
-        sed -i 's/MAGIC_ENABLE = yes/MAGIC_ENABLE = no/' keyboards/keychron/k6/rgb/rules.mk
-        sed -i 's/NKRO_ENABLE = yes/NKRO_ENABLE = no/' keyboards/keychron/k6/rgb/rules.mk
-        sed -i 's/WAIT_FOR_USB = yes/WAIT_FOR_USB = no/' keyboards/keychron/k6/rgb/rules.mk
-        sed -i 's/KEYBOARD_SHARED_EP = yes/KEYBOARD_SHARED_EP = no/' keyboards/keychron/k6/rgb/rules.mk
-        sed -i 's/RGB_MATRIX_ENABLE = yes/RGB_MATRIX_ENABLE = no/' keyboards/keychron/k6/rgb/rules.mk
-        cat keyboards/keychron/k6/rgb/rules.mk
+    # - name: Set options
+    #   run: |
+    #     echo "#define BOOTMAGIC_LITE_ROW 0" >> keyboards/keychron/k6/rgb/config.h
+    #     echo "#define BOOTMAGIC_LITE_COLUMN 0" >> keyboards/keychron/k6/rgb/config.h
+    #     sed -i 's/MAGIC_KEYCODE_ENABLE = yes/MAGIC_KEYCODE_ENABLE = no/' keyboards/keychron/k6/rgb/rules.mk
+    #     sed -i 's/MAGIC_ENABLE = yes/MAGIC_ENABLE = no/' keyboards/keychron/k6/rgb/rules.mk
+    #     sed -i 's/NKRO_ENABLE = yes/NKRO_ENABLE = no/' keyboards/keychron/k6/rgb/rules.mk
+    #     sed -i 's/WAIT_FOR_USB = yes/WAIT_FOR_USB = no/' keyboards/keychron/k6/rgb/rules.mk
+    #     sed -i 's/KEYBOARD_SHARED_EP = yes/KEYBOARD_SHARED_EP = no/' keyboards/keychron/k6/rgb/rules.mk
+    #     sed -i 's/RGB_MATRIX_ENABLE = yes/RGB_MATRIX_ENABLE = no/' keyboards/keychron/k6/rgb/rules.mk
+    #     cat keyboards/keychron/k6/rgb/rules.mk
 
     - name: Build firmware
       # run: qmk compile "users/${{ github.actor }}/${{ matrix.file }}"
       # run: qmk compile -kb keebio/iris/rev4 -km loquillo
-      run: qmk compile -kb keychron/k6/rgb -km ansi
+      run: qmk compile -kb keychron/k6/rgb -km default
 
     - name: Archive firmware
       uses: actions/upload-artifact@v3
