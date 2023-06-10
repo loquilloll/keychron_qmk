@@ -39,6 +39,10 @@ jobs:
     - name: Set options
       run: |
         echo "#define FORCE_NKRO" >> keyboards/keychron/k6/rgb/config.h
+        echo "define IGNORE_MOD_TAP_INTERRUPT" >> keyboards/keychron/k6/rgb/config.h
+        echo "define TAPPING_TERM_PER_KEY" >> keyboards/keychron/k6/rgb/config.h
+        echo "define TAPPING_TERM 225" >> keyboards/keychron/k6/rgb/config.h
+        echo "define TAPPING_TERM_SFT 175" >> keyboards/keychron/k6/rgb/config.h
     #     echo "#define BOOTMAGIC_LITE_ROW 0" >> keyboards/keychron/k6/rgb/config.h
     #     echo "#define BOOTMAGIC_LITE_COLUMN 0" >> keyboards/keychron/k6/rgb/config.h
     #     sed -i 's/MAGIC_KEYCODE_ENABLE = yes/MAGIC_KEYCODE_ENABLE = no/' keyboards/keychron/k6/rgb/rules.mk
